@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="笔记、博客"><meta name="keywords" content="笔记、博客"><title>linux文件和目录管理 | 读书和工作笔记</title><link rel="stylesheet" type="text/css" href="//fonts.neworld.org/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">linux文件和目录管理</h1><a id="logo" href="/.">读书和工作笔记</a><p class="description">面朝大海，春暖花开</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="标题"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">linux文件和目录管理</h1><div class="post-meta"><a href="/2018/03/21/linux/file-and-directory/#comments" class="comment-count"></a><p><span class="date">2018-03-21</span><span><a href="/categories/linux/" class="category">linux</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h1 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h1><p>工作中常用的linux文件和目录管理命令</p>
+<p>linux下文件的复制、移动与删除命令为：cp，mv，rm</p>
+<h2 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h2><p>ls命令用来显示目标列表，在Linux中是使用率较高的命令。ls命令的输出信息可以进行彩色加亮显示，以分区不同类型的文件。</p>
+<p>语法：ls（选项）（参数）</p>
+<p>选项：</p>
+<ul>
+<li>-a：显示所有档案及目录（ls内定将档案名或目录名称为“.”的视为影藏，不会列出）；</li>
+<li>-A：显示除影藏文件“.”和“..”以外的所有文件列表；</li>
+<li>-C：多列显示输出结果。这是默认选项；</li>
+<li>-l：与“-C”选项功能相反，所有输出信息用单列格式输出，不输出为多列；</li>
+<li>-F：在每个输出项后追加文件的类型标识符，具体含义：“*”表示具有可执行权限的普通文件，“/”表示目录，“@”表示符号链接，“|”表示命令管道FIFO，“=”表示sockets套接字。当文件为普通文件时，不输出任何标识符；</li>
+<li>-b：将文件中的不可输出的字符以反斜线“\”加字符编码的方式输出；</li>
+<li>-c：与“-lt”选项连用时，按照文件状态时间排序输出目录内容，排序的依据是文件的索引节点中的ctime字段。与“-l”选项连用时，则排序的一句是文件的状态改变时间；</li>
+<li>-d：仅显示目录名，而不显示目录下的内容列表。显示符号链接文件本身，而不显示其所指向的目录列表；</li>
+<li>-f：此参数的效果和同时指定“aU”参数相同，并关闭“lst”参数的效果；</li>
+<li>-i：显示文件索引节点号（inode）。一个索引节点代表一个文件；</li>
+<li>–file-type：与“-F”选项的功能相同，但是不显示“*”；</li>
+<li>-k：以KB（千字节）为单位显示文件大小；</li>
+<li>-l：以长格式显示目录下的内容列表。输出的信息从左到右依次包括文件名，文件类型、权限模式、硬连接数、所有者、组、文件大小和文件的最后修改时间等；</li>
+<li>-m：用“,”号区隔每个文件和目录的名称；</li>
+<li>-n：以用户识别码和群组识别码替代其名称；</li>
+<li>-r：以文件名反序排列并输出目录内容列表；</li>
+<li>-s：显示文件和目录的大小，以区块为单位；</li>
+<li>-t：用文件和目录的更改时间排序；</li>
+<li>-L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录；</li>
+<li>-R：递归处理，将指定目录下的所有文件及子目录一并处理；</li>
+<li>–full-time：列出完整的日期与时间；</li>
+<li>–color[=WHEN]：使用不同的颜色高亮显示不同类型的。</li>
+</ul>
+<p>参数：目录：指定要显示列表的目录，也可以是具体的文件。</p>
+<p>实例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 显示当前目录下非影藏文件与目录</span></span><br><span class="line">ls</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示当前目录下包括影藏文件在内的所有文件列表</span></span><br><span class="line">ls -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出长格式列表</span></span><br><span class="line">ls -1</span><br></pre></td></tr></table></figure>
+<h2 id="mkdir命令"><a href="#mkdir命令" class="headerlink" title="mkdir命令"></a>mkdir命令</h2><p>语法：mkdir (选项)(参数)</p>
+<p>选项：</p>
+<ul>
+<li>-Z：设置安全上下文，当使用SELinux时有效；</li>
+<li>-m&lt;目标属性&gt;或–mode&lt;目标属性&gt;建立目录的同时设置目录的权限；</li>
+<li>-p或–parents 若所要建立目录的上层目录目前尚未建立，则会一并建立上层目录；</li>
+<li>–version 显示版本信息。</li>
+</ul>
+<p>参数：</p>
+<p>目录：指定要创建的目录列表，多个目录之间用空格隔开。</p>
+<p>实例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 在目录/usr/meng下建立子目录test，并且只有文件主有读、写和执行权限，其他人无权访问</span></span><br><span class="line">mkdir -m 700 /usr/meng/<span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在目录/usr/meng下建立子目录test，并且只有文件主有读、写和执行权限，其他人无权访问</span></span><br><span class="line">mkdir -p-m 750 bin/os_1</span><br></pre></td></tr></table></figure>
+<h2 id="文件复制命令cp"><a href="#文件复制命令cp" class="headerlink" title="文件复制命令cp"></a>文件复制命令cp</h2><ul>
+<li>命令格式：cp [-adfilprsu] 源文件(source) 目标文件(destination)</li>
+<li>cp [option] source1 source2 source3 … directory</li>
+</ul>
+<p>参数说明：</p>
+<ul>
+<li>-a:是指archive的意思，也说是指复制所有的目录</li>
+<li>-d:若源文件为连接文件(link file)，则复制连接文件属性而非文件本身</li>
+<li>-f:强制(force)，若有重复或其它疑问时，不会询问用户，而强制复制</li>
+<li>-i:若目标文件(destination)已存在，在覆盖时会先询问是否真的操作</li>
+<li>-l:建立硬连接(hard link)的连接文件，而非复制文件本身</li>
+<li>-p:与文件的属性一起复制，而非使用默认属性</li>
+<li>-r:递归复制，用于目录的复制操作</li>
+<li>-s:复制成符号连接文件(symbolic link)，即“快捷方式”文件</li>
+<li>-u:若目标文件比源文件旧，更新目标文件</li>
+</ul>
+<p>如将/test1目录下的file1复制到/test3目录，并将文件名改为file2,可输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /test1/file1 /test3/file2</span><br></pre></td></tr></table></figure>
+<h2 id="文件移动命令mv"><a href="#文件移动命令mv" class="headerlink" title="文件移动命令mv"></a>文件移动命令mv</h2><ul>
+<li>mv [options] source destination</li>
+</ul>
+<p>参数说明：</p>
+<ul>
+<li>-f:force，强制直接移动而不询问</li>
+<li>-i:若目标文件(destination)已经存在，就会询问是否覆盖</li>
+<li>-u:若目标文件已经存在，且源文件比较新，才会更新</li>
+</ul>
+<h2 id="文件删除命令rm"><a href="#文件删除命令rm" class="headerlink" title="文件删除命令rm"></a>文件删除命令rm</h2><ul>
+<li>rm [-fir] 文件或目录</li>
+</ul>
+<p>参数说明：</p>
+<ul>
+<li>-f:强制删除</li>
+<li>-i:交互模式，在删除前询问用户是否操作</li>
+<li>-r:递归删除，常用在目录的删除</li>
+</ul>
+<h2 id="rmdir命令"><a href="#rmdir命令" class="headerlink" title="rmdir命令"></a>rmdir命令</h2><p>rmdir命令用来删除空目录。</p>
+<p>语法：rmdir(选项)(参数)</p>
+<p>选项：</p>
+<ul>
+<li>-p或–parents：删除指定目录后，若该目录的上层目录已变成空目录，则将其一并删除；</li>
+<li>–ignore-fail-on-non-empty：此选项使rmdir命令忽略由于删除非空目录时导致的错误信息；</li>
+<li>-v或-verboes：显示命令的详细执行过程；</li>
+<li>–help：显示命令的帮助信息；</li>
+<li>–version：显示命令的版本信息。</li>
+</ul>
+<p>参数：目录列表：要删除的空目录列表。当删除多个空目录时，目录名之间使用空格隔开。</p>
+<p>实例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 目录列表：要删除的空目录列表。当删除多个空目录时，目录名之间使用空格隔开。</span></span><br><span class="line"><span class="built_in">cd</span> /usr/meng/<span class="built_in">test</span></span><br><span class="line">rmdir -p bin/os_1</span><br></pre></td></tr></table></figure>
+<h2 id="pwd命令"><a href="#pwd命令" class="headerlink" title="pwd命令"></a>pwd命令</h2><p>pwd命令以绝对路径的方式显示用户当前工作目录。命令将当前目录的全路径名称（从根目录）写入标准输出。全部目录使用/分隔。第一个/表示根目录，最后一个目录是当前目录。执行pwd命令可立刻得知您目前所在的工作目录的绝对路径名称。</p>
+<h2 id="cd-命令"><a href="#cd-命令" class="headerlink" title="cd 命令"></a>cd 命令</h2><ul>
+<li>cd    进入用户主目录；</li>
+<li>cd ~  进入用户主目录；</li>
+<li>cd -  返回进入此目录之前所在的目录；</li>
+<li>cd ..  返回上级目录（若当前目录为“/“，则执行完后还在“/“；”..”为上级目录的意思）；</li>
+<li>cd ../..  返回上两级目录；</li>
+<li>cd !$  把上个命令的参数作为cd参数使用。</li>
+</ul>
+</div><div class="tags"></div><div class="post-share"><div class="jiathis_style"><span class="jiathis_txt">分享到：</span><a class="jiathis_button_tsina"></a><a class="jiathis_button_qzone"></a><a class="jiathis_button_weixin"></a><a class="jiathis_button_fb"></a><a class="jiathis_button_linkedin"></a><a class="jiathis_button_twitter"></a><a class="jiathis_button_ydnote"></a><a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis"></a><a class="jiathis_counter_style"></a></div></div><div class="post-nav"><a href="/2018/03/21/nodejs/pm2/" class="next">pm2介绍</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux常用命令"><span class="toc-text">linux常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ls命令"><span class="toc-text">ls命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mkdir命令"><span class="toc-text">mkdir命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件复制命令cp"><span class="toc-text">文件复制命令cp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件移动命令mv"><span class="toc-text">文件移动命令mv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件删除命令rm"><span class="toc-text">文件删除命令rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rmdir命令"><span class="toc-text">rmdir命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwd命令"><span class="toc-text">pwd命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cd-命令"><span class="toc-text">cd 命令</span></a></li></ol></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/21/linux/file-and-directory/">linux文件和目录管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/21/nodejs/pm2/">pm2介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/21/linux/network/">linux网络管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/es6/object/">es6对象的扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/git/common-commands/">git常用命令</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/es6/">es6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/pm2/" style="font-size: 15px;">pm2</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">订阅</a> |  <a href="/about/">关于</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">明华.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script><script>var jiathis_config={
+    data_track_clickback:true,
+    summary:"",
+    shortUrl:true,
+    hideMore:false
+}</script><script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script></body></html>
